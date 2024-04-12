@@ -8,7 +8,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" stylesheets="/ru/sgk/chatnotesdesktop/main.css">
+<BorderPane xmlns:fx="http://javafx.com/fxml" stylesheets="@main.css">
     <left>
             <Pane prefWidth="200" minWidth="200" styleClass="blue">
                 <Label>test</Label>

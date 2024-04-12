@@ -1,1 +1,3 @@
 rootProject.name = "chatnotes-desktop"
+include 'chatnotes-desktop-frontend'
+include 'chatnotes-desktop-backend'
