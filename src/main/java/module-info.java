@@ -1,4 +1,4 @@
-module ru.sgk.chatnotesdesktop {
+module ru.sgk.chatnotesdesktop.desktop {
     requires javafx.controls;
     requires javafx.graphics;
     requires javafx.fxml;

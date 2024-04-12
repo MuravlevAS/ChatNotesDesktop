@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'ru.sgk.chatnotesdesktop'
+    mainModule = 'ru.sgk.chatnotesdesktop.desktop'
     mainClass = 'ru.sgk.chatnotesdesktop.HelloApplication'
 
 }
