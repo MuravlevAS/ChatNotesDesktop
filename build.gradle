@@ -12,9 +12,6 @@ version '1.0'
 repositories {
     mavenCentral()
 }
-javafx {
-    platform = 'linux'
-}
 
 sourceCompatibility = '17'
 targetCompatibility = '17'
@@ -34,6 +31,7 @@ application {
 javafx {
     version = '22'
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics']
+    platform = getProperty('javafx.platform')
 }
 
 jlink {
@@ -43,9 +41,14 @@ jlink {
         name = 'app'
     }
     moduleName = 'ru.sgk.chatnotesdesktop.desktop'
-
     jpackage {
-        installerType = null
+        if (javafx.platform.classifier == 'linux') {
+            installerType = 'deb'
+        }
+        if (javafx.platform.classifier == 'win') {
+            installerType = 'exe'
+            installerOptions = ['--win-dir-chooser', '--win-menu', '--win-shortcut-prompt']
+        }
     }
 }
 
