@@ -10,8 +10,7 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/androidx.sqlite/sqlite
-//    runtimeOnly 'androidx.sqlite:sqlite:2.4.0'
+    implementation 'org.cactoos:cactoos:0.55.0'
     implementation 'org.xerial:sqlite-jdbc:3.45.2.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
