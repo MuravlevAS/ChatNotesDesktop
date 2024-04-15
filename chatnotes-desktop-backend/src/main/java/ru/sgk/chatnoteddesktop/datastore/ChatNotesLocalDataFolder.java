@@ -1,12 +1,11 @@
 package ru.sgk.chatnoteddesktop.datastore;
 
-import org.cactoos.scalar.ScalarEnvelope;
-import ru.sgk.chatnoteddesktop.datastore.LocalDataFolder;
+import org.cactoos.text.TextEnvelope;
 
 /**
  * Chat notes data folder
  */
-public final class ChatNotesLocalDataFolder extends ScalarEnvelope<String> {
+public final class ChatNotesLocalDataFolder extends TextEnvelope {
     /**
      * Ctor.
      */
