@@ -18,7 +18,7 @@ public class CreateChatTableAction extends DatasourceAction<Void> {
         try (Connection connection = datasource().connection();
              PreparedStatement statement = connection.prepareStatement("""
                      create table if not exists chat (
-                         id integer primary key autoincrement,
+                         uuid text primary key,
                          title text,
                          description text,
                          icon text

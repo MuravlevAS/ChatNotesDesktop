@@ -16,7 +16,13 @@ public class CreateMessageTableAction extends DatasourceAction<Void> {
     public Void doAction() throws SQLException {
         try (Connection connection = datasource().connection();
              PreparedStatement statement = connection.prepareStatement("""
-                     create table message (id integer primary key autoincrement, message_text text, created_datetime integer)
+                     create table if not exists message (
+                         uuid text,
+                         chat_uuid text,
+                         message_text text,
+                         created_datetime integer,
+                         primary key (uuid, chat_uuid)
+                    )
                      """)) {
 
             statement.executeUpdate();
