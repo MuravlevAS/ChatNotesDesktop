@@ -13,6 +13,7 @@ create table if not exists message
     uuid              text    not null,
     chat_uuid         text    not null,
     message_text      text    not null,
+    sent_at           integer not null,
     modified_datetime integer not null,
     primary key (uuid, chat_uuid)
 );
