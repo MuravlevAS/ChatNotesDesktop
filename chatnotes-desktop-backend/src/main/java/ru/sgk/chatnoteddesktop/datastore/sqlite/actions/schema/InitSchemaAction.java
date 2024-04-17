@@ -1,8 +1,13 @@
 package ru.sgk.chatnoteddesktop.datastore.sqlite.actions.schema;
 
+import liquibase.command.CommandScope;
+import liquibase.command.core.UpdateCommandStep;
+import liquibase.command.core.helpers.DbUrlConnectionArgumentsCommandStep;
+import liquibase.database.Database;
+import liquibase.database.DatabaseFactory;
+import liquibase.database.jvm.JdbcConnection;
+import liquibase.exception.LiquibaseException;
 import ru.sgk.chatnoteddesktop.datastore.AppDatasource;
-import ru.sgk.chatnoteddesktop.datastore.ConnectedDatasource;
-import ru.sgk.chatnoteddesktop.datastore.NotClosableConnection;
 import ru.sgk.chatnoteddesktop.datastore.action.DatasourceAction;
 
 import java.sql.Connection;
@@ -19,14 +24,13 @@ public final class InitSchemaAction extends DatasourceAction<Void> {
     @Override
     public Void doAction() throws SQLException {
         try (Connection connection = datasource().connection()) {
-            connection.setAutoCommit(false);
-            ConnectedDatasource connectedDatasource = new ConnectedDatasource(new NotClosableConnection(connection));
-            new CreateChatTableAction(connectedDatasource).doAction();
-            new CreateMessageTableAction(connectedDatasource).doAction();
-            new CreateChatFtsTableAction(connectedDatasource).doAction();
-            new CreateMessageFtsTableAction(connectedDatasource).doAction();
-            connection.commit();
-            // TODO: 14.04.2024 Connect liquibase here for managing versions.
+            CommandScope updateCommand = new CommandScope(UpdateCommandStep.COMMAND_NAME);
+            Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
+            updateCommand.addArgumentValue(DbUrlConnectionArgumentsCommandStep.DATABASE_ARG, database);
+            updateCommand.addArgumentValue(UpdateCommandStep.CHANGELOG_FILE_ARG, "/db/changelog/liquibase-changelog.yaml");
+            updateCommand.execute();
+        } catch (LiquibaseException e) {
+            throw new SQLException(e);
         }
         return null;
     }

@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 'v1-1-initial-schema'
+      author: 'MuravlevAS'
+      runInTransaction: true
+      changes:
+        - sqlFile:
+            path: 'v1-1-initial-schema.sql'
+            relativeToChangelogFile: true
