@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SQLiteDatasource implements AppDatasource {
+public final class SQLiteDatasource implements AppDatasource {
 
     private final UncheckedText dbLocation;
 

@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class CreateChatTableAction extends DatasourceAction<Void> {
+public final class CreateChatTableAction extends DatasourceAction<Void> {
     public CreateChatTableAction(AppDatasource datasource) {
         super(datasource);
     }

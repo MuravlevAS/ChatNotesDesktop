@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CreateChatFtsTableAction extends DatasourceAction<Void> {
+public final class CreateChatFtsTableAction extends DatasourceAction<Void> {
     public CreateChatFtsTableAction(AppDatasource datasource) {
         super(datasource);
     }

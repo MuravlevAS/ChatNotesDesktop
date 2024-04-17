@@ -11,7 +11,7 @@ import java.io.File;
 /**
  * db path
  */
-public class ChatNotesDBPath extends TextEnvelope {
+public final class ChatNotesDBPath extends TextEnvelope {
 
     /**
      * Path with default db name and location

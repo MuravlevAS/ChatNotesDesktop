@@ -8,7 +8,7 @@ import java.util.concurrent.Executor;
 /**
  * Connection thad cannot be closed.
  */
-public class NotClosableConnection implements Connection {
+public final class NotClosableConnection implements Connection {
     private final Connection connection;
 
     public NotClosableConnection(Connection connection) {

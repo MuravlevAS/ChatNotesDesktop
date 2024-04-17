@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CreateMessageFtsTableAction extends DatasourceAction<Void> {
+public final class CreateMessageFtsTableAction extends DatasourceAction<Void> {
     public CreateMessageFtsTableAction(AppDatasource datasource) {
         super(datasource);
     }

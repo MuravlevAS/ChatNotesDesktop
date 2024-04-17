@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CreateSyncTableAction extends DatasourceAction<Void> {
+public final class CreateSyncTableAction extends DatasourceAction<Void> {
     public CreateSyncTableAction(AppDatasource datasource) {
         super(datasource);
     }

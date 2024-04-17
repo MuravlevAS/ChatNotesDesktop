@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Action that initializes schema.
  */
-public class InitSchemaAction extends DatasourceAction<Void> {
+public final class InitSchemaAction extends DatasourceAction<Void> {
     public InitSchemaAction(AppDatasource datasource) {
         super(datasource);
     }

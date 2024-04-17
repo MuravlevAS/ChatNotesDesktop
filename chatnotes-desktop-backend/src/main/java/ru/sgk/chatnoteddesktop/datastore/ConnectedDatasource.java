@@ -5,7 +5,7 @@ import java.sql.Connection;
 /**
  * Already connected datasource. It will always give specified connection.
  */
-public class ConnectedDatasource implements AppDatasource {
+public final class ConnectedDatasource implements AppDatasource {
 
     private final Connection connection;
 
