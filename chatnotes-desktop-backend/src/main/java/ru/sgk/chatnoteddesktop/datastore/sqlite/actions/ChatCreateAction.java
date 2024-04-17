@@ -8,9 +8,9 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.util.UUID;
 
-public class CreateChatAction extends DatasourceAction<CreateChatAction.Res> {
+public final class ChatCreateAction extends DatasourceAction<ChatCreateAction.Res> {
     private final Req request;
-    public CreateChatAction(AppDatasource datasource, Req request) {
+    public ChatCreateAction(AppDatasource datasource, Req request) {
         super(datasource);
         this.request = request;
     }
