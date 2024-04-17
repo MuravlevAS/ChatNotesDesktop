@@ -18,14 +18,13 @@ public class InitSchemaAction extends DatasourceAction<Void> {
 
     @Override
     public Void doAction() throws SQLException {
-
         try (Connection connection = datasource().connection()) {
             connection.setAutoCommit(false);
-
             ConnectedDatasource connectedDatasource = new ConnectedDatasource(new NotClosableConnection(connection));
             new CreateChatTableAction(connectedDatasource).doAction();
             new CreateMessageTableAction(connectedDatasource).doAction();
-
+            new CreateChatFtsTableAction(connectedDatasource).doAction();
+            new CreateMessageFtsTableAction(connectedDatasource).doAction();
             connection.commit();
             // TODO: 14.04.2024 Connect liquibase here for managing versions.
         }
