@@ -16,11 +16,11 @@ public final class CreateSyncTableAction extends DatasourceAction<Void> {
     public Void doAction() throws SQLException {
         try (Connection connection = datasource().connection();
              PreparedStatement statement = connection.prepareStatement("""
-                     create table if not exists sync (
-                        sync_id integer primary key autoincrement,
-                        sync_datetime integer
-                    )
-                    """)) {
+                      create table if not exists sync (
+                         sync_id integer primary key autoincrement,
+                         sync_datetime integer
+                     )
+                     """)) {
 
             statement.executeUpdate();
         }

@@ -2,8 +2,8 @@ package ru.sgk.chatnoteddesktop.datastore.sqlite.actions.schema;
 
 import ru.sgk.chatnoteddesktop.datastore.AppDatasource;
 import ru.sgk.chatnoteddesktop.datastore.ConnectedDatasource;
-import ru.sgk.chatnoteddesktop.datastore.action.DatasourceAction;
 import ru.sgk.chatnoteddesktop.datastore.NotClosableConnection;
+import ru.sgk.chatnoteddesktop.datastore.action.DatasourceAction;
 
 import java.sql.Connection;
 import java.sql.SQLException;

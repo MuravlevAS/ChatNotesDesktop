@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
 public final class CreateChatTableAction extends DatasourceAction<Void> {
     public CreateChatTableAction(AppDatasource datasource) {
         super(datasource);
@@ -15,18 +14,23 @@ public final class CreateChatTableAction extends DatasourceAction<Void> {
 
     @Override
     public Void doAction() throws SQLException {
-        try (Connection connection = datasource().connection();
-             PreparedStatement statement = connection.prepareStatement("""
-                     create table if not exists chat (
-                         uuid text primary key,
-                         title text,
-                         description text,
-                         modified_datetime integer,
-                         icon text
-                     );
-                     """)) {
-
-            statement.executeUpdate();
+        try (Connection connection = datasource().connection()) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    create table if not exists chat (
+                        uuid text primary key not null,
+                        title text not null,
+                        description text not null,
+                        modified_datetime integer not null,
+                        icon text
+                    )
+                    """)) {
+                statement.execute();
+            }
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    create index if not EXISTS chat_modified_datetime_index on chat(modified_datetime)
+                    """)) {
+                statement.execute();
+            }
         }
         return null;
     }
