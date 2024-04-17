@@ -21,6 +21,7 @@ public class CreateChatTableAction extends DatasourceAction<Void> {
                          uuid text primary key,
                          title text,
                          description text,
+                         modified_datetime integer,
                          icon text
                      );
                      """)) {

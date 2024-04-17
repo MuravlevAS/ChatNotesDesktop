@@ -7,8 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CreateMessageTableAction extends DatasourceAction<Void> {
-    public CreateMessageTableAction(AppDatasource datasource) {
+public class CreateSyncTableAction extends DatasourceAction<Void> {
+    public CreateSyncTableAction(AppDatasource datasource) {
         super(datasource);
     }
 
@@ -16,12 +16,9 @@ public class CreateMessageTableAction extends DatasourceAction<Void> {
     public Void doAction() throws SQLException {
         try (Connection connection = datasource().connection();
              PreparedStatement statement = connection.prepareStatement("""
-                     create table if not exists message (
-                         uuid text,
-                         chat_uuid text,
-                         message_text text,
-                         modified_datetime integer,
-                         primary key (uuid, chat_uuid)
+                     create table if not exists sync (
+                        sync_id integer primary key autoincrement,
+                        sync_datetime integer
                     )
                     """)) {
 
