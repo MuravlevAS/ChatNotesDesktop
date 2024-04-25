@@ -31,7 +31,7 @@ application {
 
 
 javafx {
-    version = '22'
+    version = parent.javafx.version
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics']
     platform = parent.javafx.platform
 }

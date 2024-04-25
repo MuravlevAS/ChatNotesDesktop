@@ -29,7 +29,7 @@ application {
 }
 
 javafx {
-    version = '22'
+    version = '21'
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics']
     platform = getProperty('javafx.platform')
 }

@@ -3,6 +3,7 @@ package ru.sgk.chatnotesdesktop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -20,7 +21,7 @@ public class ChatNotesApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == javafx.scene.input.KeyCode.ESCAPE) {
+            if (event.getCode() == KeyCode.ESCAPE) {
                 stage.hide();
                 System.exit(0);
             }
