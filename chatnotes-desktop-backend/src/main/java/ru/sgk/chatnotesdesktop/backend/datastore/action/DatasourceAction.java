@@ -1,6 +1,6 @@
-package ru.sgk.chatnoteddesktop.datastore.action;
+package ru.sgk.chatnotesdesktop.backend.datastore.action;
 
-import ru.sgk.chatnoteddesktop.datastore.AppDatasource;
+import ru.sgk.chatnotesdesktop.backend.datastore.AppDatasource;
 
 import java.sql.SQLException;
 

@@ -9,6 +9,9 @@ repositories {
     mavenCentral()
 }
 
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
 dependencies {
     implementation 'org.cactoos:cactoos:0.55.0'
     implementation 'org.xerial:sqlite-jdbc:3.45.2.0'

@@ -1,4 +1,4 @@
-package ru.sgk.chatnoteddesktop.datastore;
+package ru.sgk.chatnotesdesktop.backend.datastore;
 
 import org.cactoos.text.TextEnvelope;
 

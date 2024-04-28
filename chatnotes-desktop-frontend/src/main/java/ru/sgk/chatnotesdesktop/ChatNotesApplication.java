@@ -3,11 +3,19 @@ package ru.sgk.chatnotesdesktop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import ru.sgk.chatnotesdesktop.backend.SQLiteChat;
+import ru.sgk.chatnotesdesktop.backend.datastore.sqlite.ChatNotesDBPath;
+import ru.sgk.chatnotesdesktop.backend.datastore.sqlite.SQLiteDatasource;
+import ru.sgk.chatnotesdesktop.backend.datastore.sqlite.actions.FetchChatsAction;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Collection;
 
 public class ChatNotesApplication extends Application {
     public static void main(String[] args) {
@@ -26,6 +34,25 @@ public class ChatNotesApplication extends Application {
                 System.exit(0);
             }
         });
+
+        Pane lookup = (Pane)scene.getRoot().lookup("#leftPane");
+//
+        FXMLLoader chatLoader = new FXMLLoader(ChatNotesApplication.class.getResource("chat.fxml"));
+        SQLiteDatasource datasource = new SQLiteDatasource(new ChatNotesDBPath());
+
+        Collection<SQLiteChat> sqLiteChats = null;
+        try {
+            sqLiteChats = new FetchChatsAction(datasource).doAction();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for (SQLiteChat sqLiteChat : sqLiteChats) {
+            chatLoader.setRoot(null);
+            Pane chat = chatLoader.load();
+            Label label = (Label) chat.lookup("#text");
+            label.setText(sqLiteChat.title());
+            lookup.getChildren().add(chat);
+        }
         stage.show();
     }
 }

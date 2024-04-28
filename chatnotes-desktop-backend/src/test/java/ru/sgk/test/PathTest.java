@@ -4,8 +4,8 @@ import org.cactoos.text.Concatenated;
 import org.cactoos.text.TextOf;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.sgk.chatnoteddesktop.datastore.ChatNotesLocalDataFolder;
-import ru.sgk.chatnoteddesktop.datastore.sqlite.ChatNotesDBPath;
+import ru.sgk.chatnotesdesktop.backend.datastore.ChatNotesLocalDataFolder;
+import ru.sgk.chatnotesdesktop.backend.datastore.sqlite.ChatNotesDBPath;
 
 import java.io.File;
 

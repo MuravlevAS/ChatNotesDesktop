@@ -1,4 +1,4 @@
-package ru.sgk.chatnoteddesktop.datastore.sqlite.actions.schema;
+package ru.sgk.chatnotesdesktop.backend.datastore.sqlite.actions.schema;
 
 import liquibase.command.CommandScope;
 import liquibase.command.core.UpdateCommandStep;
@@ -7,8 +7,8 @@ import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
-import ru.sgk.chatnoteddesktop.datastore.AppDatasource;
-import ru.sgk.chatnoteddesktop.datastore.action.DatasourceAction;
+import ru.sgk.chatnotesdesktop.backend.datastore.action.DatasourceAction;
+import ru.sgk.chatnotesdesktop.backend.datastore.AppDatasource;
 
 import java.sql.Connection;
 import java.sql.SQLException;

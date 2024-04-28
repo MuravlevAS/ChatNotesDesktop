@@ -1,10 +1,10 @@
-package ru.sgk.chatnoteddesktop.datastore.sqlite;
+package ru.sgk.chatnotesdesktop.backend.datastore.sqlite;
 
 import org.cactoos.Text;
 import org.cactoos.text.Concatenated;
 import org.cactoos.text.TextEnvelope;
 import org.cactoos.text.TextOf;
-import ru.sgk.chatnoteddesktop.datastore.ChatNotesLocalDataFolder;
+import ru.sgk.chatnotesdesktop.backend.datastore.ChatNotesLocalDataFolder;
 
 import java.io.File;
 

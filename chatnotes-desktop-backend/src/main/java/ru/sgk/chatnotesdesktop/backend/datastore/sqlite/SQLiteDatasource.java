@@ -1,9 +1,9 @@
-package ru.sgk.chatnoteddesktop.datastore.sqlite;
+package ru.sgk.chatnotesdesktop.backend.datastore.sqlite;
 
 import org.cactoos.Text;
 import org.cactoos.text.TextOf;
 import org.cactoos.text.UncheckedText;
-import ru.sgk.chatnoteddesktop.datastore.AppDatasource;
+import ru.sgk.chatnotesdesktop.backend.datastore.AppDatasource;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;

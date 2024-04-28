@@ -1,17 +1,20 @@
-package ru.sgk.chatnoteddesktop.datastore.sqlite.actions;
+package ru.sgk.chatnotesdesktop.backend.datastore.sqlite.actions;
 
-import ru.sgk.chatnoteddesktop.datastore.AppDatasource;
-import ru.sgk.chatnoteddesktop.datastore.action.DatasourceAction;
+import ru.sgk.chatnotesdesktop.backend.datastore.action.DatasourceAction;
+import ru.sgk.chatnotesdesktop.backend.datastore.AppDatasource;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.util.UUID;
 
-public class ChatUpdateAction  extends DatasourceAction<Void> {
+public class MessageUpdateAction extends DatasourceAction<Void> {
     private final Req  request;
 
-    public ChatUpdateAction(AppDatasource datasource, Req request) {
+    public MessageUpdateAction(AppDatasource datasource, Req request) {
         super(datasource);
         this.request = request;
     }

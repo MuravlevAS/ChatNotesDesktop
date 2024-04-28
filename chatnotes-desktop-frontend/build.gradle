@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.javamodularity.moduleplugin' version '1.8.12'
+//    id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.1.0'
     id 'org.beryx.jlink' version '3.0.1'
 }
@@ -25,10 +25,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'ru.sgk.chatnotesdesktop.desktop'
     mainClass = 'ru.sgk.chatnotesdesktop.ChatNotesApplication'
 }
-
 
 javafx {
     version = parent.javafx.version
@@ -45,6 +43,8 @@ java {
 }
 
 dependencies {
+    implementation 'org.cactoos:cactoos:0.55.0'
+    implementation project(':chatnotes-desktop-backend')
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

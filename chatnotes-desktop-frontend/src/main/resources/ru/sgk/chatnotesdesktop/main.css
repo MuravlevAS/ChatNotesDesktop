@@ -8,3 +8,9 @@
 .white {
     -fx-background-color: #FFF;
 }
+.chat {
+    -fx-background-color: #FFF;
+}
+.chat:hover {
+    -fx-background-color: #EEE;
+}

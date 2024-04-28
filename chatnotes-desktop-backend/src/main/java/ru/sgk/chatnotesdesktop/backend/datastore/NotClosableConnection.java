@@ -1,4 +1,4 @@
-package ru.sgk.chatnoteddesktop.datastore;
+package ru.sgk.chatnotesdesktop.backend.datastore;
 
 import java.sql.*;
 import java.util.Map;
