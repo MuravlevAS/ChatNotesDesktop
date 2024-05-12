@@ -1,9 +1,8 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.1.0'
-    id 'org.beryx.jlink' version '3.0.1'
+    id 'org.beryx.runtime' version '1.13.1'
 }
 
 group 'ru.sgk'
@@ -19,28 +18,23 @@ targetCompatibility = '17'
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
 dependencies {
     implementation project(':chatnotes-desktop-frontend')
 }
 application {
-    mainModule = 'ru.sgk.chatnotesdesktop.desktop'
     mainClass = 'ru.sgk.chatnotesdesktop.ChatNotesApplication'
-
 }
-
 javafx {
     version = '21'
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics']
     platform = getProperty('javafx.platform')
 }
 
-jlink {
-    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+runtime {
+    imageZip = project.file("${buildDir}/distributions/app.zip")
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-    launcher {
-        name = 'app'
-    }
-    moduleName = 'ru.sgk.chatnotesdesktop.desktop'
+
     jpackage {
         if (javafx.platform.classifier == 'linux') {
             installerType = 'deb'
@@ -51,7 +45,6 @@ jlink {
         }
     }
 }
-
-jlinkZip {
+runtimeZip {
     group = 'distribution'
 }
