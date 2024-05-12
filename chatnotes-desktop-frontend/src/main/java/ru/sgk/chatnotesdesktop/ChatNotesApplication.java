@@ -35,7 +35,7 @@ public class ChatNotesApplication extends Application {
             }
         });
 
-        Pane lookup = (Pane)scene.getRoot().lookup("#chatsPane");
+        Pane lookup = (Pane)scene.getRoot().lookup("#chats_pane");
 //
         SQLiteDatasource datasource = new SQLiteDatasource(new ChatNotesDBPath());
 
