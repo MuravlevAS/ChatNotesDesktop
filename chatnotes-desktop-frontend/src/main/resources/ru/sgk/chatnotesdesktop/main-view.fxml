@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.VBox?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" stylesheets="@main.css">
     <left>
-            <VBox prefWidth="200" minWidth="200" styleClass="blue" fx:id="leftPane">
+            <VBox prefWidth="200" minWidth="200" styleClass="blue" fx:id="chatsPane">
 
             </VBox>
     </left>
     <center>
-        <BorderPane prefWidth="300" minWidth="200" styleClass="light-blue">
+        <BorderPane prefWidth="300" minWidth="200" styleClass="light-blue" fx:id="selectedChatPane">
             <top>
                 <Pane prefHeight="30" styleClass="white">
 

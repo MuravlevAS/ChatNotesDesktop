@@ -1,10 +1,15 @@
 package ru.sgk.chatnotesdesktop;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import ru.sgk.chatnotesdesktop.backend.Chat;
 import ru.sgk.chatnotesdesktop.backend.HasId;
 import ru.sgk.chatnotesdesktop.backend.datastore.StoredChat;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
@@ -91,8 +96,22 @@ public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane>,
 
     @Override
     public Pane displayableObject() {
-        // TODO: 12.05.2024 create displayable object. Object should have id like 'chat_[chatId]'
-
-        return null;
+        FXMLLoader chatLoader = new FXMLLoader(getClass().getResource("/ru/sgk/chatnotesdesktop/list-chat.fxml"));
+        try {
+            Pane chat = chatLoader.load();
+            Label label = (Label) chat.lookup("#text");
+            label.setText(title());
+            chat.setId("list_chat_" + this.id().toString());
+            chat.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                if (e.getButton() == MouseButton.PRIMARY) {
+                    // TODO: 12.05.2024 add chat event handler that will create chat view with messages.
+//                    Pane messagePane = (Pane) chat.getScene().lookup("#messagesPane");
+//                    messagePane.
+                }
+            });
+            return chat;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

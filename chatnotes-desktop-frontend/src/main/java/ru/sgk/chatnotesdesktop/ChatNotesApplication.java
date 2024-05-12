@@ -35,9 +35,8 @@ public class ChatNotesApplication extends Application {
             }
         });
 
-        Pane lookup = (Pane)scene.getRoot().lookup("#leftPane");
+        Pane lookup = (Pane)scene.getRoot().lookup("#chatsPane");
 //
-        FXMLLoader chatLoader = new FXMLLoader(ChatNotesApplication.class.getResource("chat.fxml"));
         SQLiteDatasource datasource = new SQLiteDatasource(new ChatNotesDBPath());
 
         Collection<SQLiteChat> sqLiteChats = null;
@@ -47,11 +46,7 @@ public class ChatNotesApplication extends Application {
             throw new RuntimeException(e);
         }
         for (SQLiteChat sqLiteChat : sqLiteChats) {
-            chatLoader.setRoot(null);
-            Pane chat = chatLoader.load();
-            Label label = (Label) chat.lookup("#text");
-            label.setText(sqLiteChat.title());
-            lookup.getChildren().add(chat);
+            lookup.getChildren().add(new DisplayedChat(sqLiteChat).displayableObject());
         }
         stage.show();
     }
