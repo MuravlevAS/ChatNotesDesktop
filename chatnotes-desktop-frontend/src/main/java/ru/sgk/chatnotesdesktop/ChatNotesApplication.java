@@ -23,7 +23,7 @@ public class ChatNotesApplication extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(ChatNotesApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Hello!");
@@ -40,11 +40,7 @@ public class ChatNotesApplication extends Application {
         SQLiteDatasource datasource = new SQLiteDatasource(new ChatNotesDBPath());
 
         Collection<SQLiteChat> sqLiteChats = null;
-        try {
-            sqLiteChats = new FetchChatsAction(datasource).doAction();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        sqLiteChats = new FetchChatsAction(datasource).doAction();
         for (SQLiteChat sqLiteChat : sqLiteChats) {
             lookup.getChildren().add(new DisplayedChat(sqLiteChat).displayableObject());
         }
