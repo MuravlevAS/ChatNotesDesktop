@@ -1,12 +1,13 @@
 package ru.sgk.chatnotesdesktop.backend;
 
 import ru.sgk.chatnotesdesktop.backend.datastore.AppDatasource;
+import ru.sgk.chatnotesdesktop.backend.datastore.StoredChat;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.UUID;
 
-public class SQLiteChat implements Chat<SQLiteMessage>, HasId<UUID> {
+public class SQLiteChat implements StoredChat<SQLiteMessage> {
     private final AppDatasource datasource;
     private final UUID id;
     private final String title;
