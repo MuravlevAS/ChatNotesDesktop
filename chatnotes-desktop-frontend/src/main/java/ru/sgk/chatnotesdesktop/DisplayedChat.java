@@ -2,16 +2,55 @@ package ru.sgk.chatnotesdesktop;
 
 import javafx.scene.layout.Pane;
 import ru.sgk.chatnotesdesktop.backend.Chat;
+import ru.sgk.chatnotesdesktop.backend.HasId;
+import ru.sgk.chatnotesdesktop.backend.datastore.StoredChat;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.UUID;
 
-public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane> {
+public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane>, HasId<UUID> {
     private final Chat<?> origin;
+    private final UUID id;
 
-    public DisplayedChat(Chat<?> origin) {
+    /**
+     * ctor
+     *
+     * @param origin chat which this will map on.
+     * @param id     id for javafx nodes.
+     */
+    public DisplayedChat(Chat<?> origin, UUID id) {
         this.origin = origin;
+        this.id = id;
+    }
+
+    /**
+     * ctor. Id will be taken from
+     *
+     * @param origin chat which this will map on.
+     */
+    public DisplayedChat(StoredChat<?> origin) {
+        this(origin, origin.id());
+    }
+
+    /**
+     * ctor. Id will be taken ether from origin, if it is an instance of StoredChat or randomUUID will be generated.
+     *
+     * @param origin
+     */
+    public DisplayedChat(Chat<?> origin) {
+        this(origin, origin instanceof StoredChat<?> i ? i.id() : UUID.randomUUID());
+    }
+
+    /**
+     * id for javafx nodes.
+     *
+     * @return id
+     */
+    @Override
+    public UUID id() {
+        return this.id;
     }
 
     @Override
