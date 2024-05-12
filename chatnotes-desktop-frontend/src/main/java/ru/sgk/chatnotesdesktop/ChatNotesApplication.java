@@ -39,8 +39,7 @@ public class ChatNotesApplication extends Application {
 //
         SQLiteDatasource datasource = new SQLiteDatasource(new ChatNotesDBPath());
 
-        Collection<SQLiteChat> sqLiteChats = null;
-        sqLiteChats = new FetchChatsAction(datasource).doAction();
+        Collection<SQLiteChat> sqLiteChats = new FetchChatsAction(datasource).doAction();
         for (SQLiteChat sqLiteChat : sqLiteChats) {
             lookup.getChildren().add(new DisplayedChat(sqLiteChat).displayableObject());
         }
