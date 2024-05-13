@@ -17,7 +17,7 @@
             </VBox>
     </left>
     <center>
-        <BorderPane prefWidth="300" minWidth="200" styleClass="light-blue" fx:id="selected_chat_pane">
+        <BorderPane prefWidth="300" minWidth="200" styleClass="light-blue" fx:id="active_chat">
             <top>
                 <Pane prefHeight="30" styleClass="white">
 
