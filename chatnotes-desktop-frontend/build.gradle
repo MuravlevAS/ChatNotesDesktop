@@ -14,9 +14,6 @@ ext {
     junitVersion = '5.9.1'
 }
 
-sourceCompatibility = '17'
-targetCompatibility = '17'
-
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -26,17 +23,7 @@ application {
 }
 
 javafx {
-    version = parent.javafx.version
-    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics']
-    platform = parent.javafx.platform
-}
-
-//windows {
-//     Generic parameter value for Windows build
-//}
-
-java {
-//    modularity.inferModulePath.set(false)
+    modules = rootProject.javafx.modules
 }
 
 dependencies {

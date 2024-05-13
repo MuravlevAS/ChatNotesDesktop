@@ -23,12 +23,15 @@ dependencies {
     implementation project(':chatnotes-desktop-frontend')
 }
 application {
-    mainClass = 'ru.sgk.chatnotesdesktop.ChatNotesApplication'
+    mainClass = 'ru.sgk.chatnotesdesktop.Launcher'
 }
 javafx {
-    version = '21'
-    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics']
-    platform = getProperty('javafx.platform')
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
 }
 
 runtime {
