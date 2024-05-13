@@ -2,7 +2,9 @@ package ru.sgk.chatnotesdesktop.backend;
 
 import ru.sgk.chatnotesdesktop.backend.datastore.AppDatasource;
 import ru.sgk.chatnotesdesktop.backend.datastore.StoredChat;
+import ru.sgk.chatnotesdesktop.backend.datastore.sqlite.actions.FetchMessagesAction;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.UUID;
@@ -17,6 +19,7 @@ public class SQLiteChat implements StoredChat<SQLiteMessage> {
     public SQLiteChat(AppDatasource datasource, UUID id, String title, String description) {
         this(datasource, id, title, description, LocalDateTime.now());
     }
+
     public SQLiteChat(AppDatasource datasource, UUID id, String title, String description, LocalDateTime modified) {
         this.datasource = datasource;
         this.id = id;
@@ -57,18 +60,21 @@ public class SQLiteChat implements StoredChat<SQLiteMessage> {
 
     @Override
     public Collection<SQLiteMessage> messages() {
-
-        return null;
-        // TODO: 27.04.2024 from sql?
+        try {
+            return new FetchMessagesAction(this.datasource, this).doAction();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
     public Collection<SQLiteMessage> messages(LocalDateTime startDate, LocalDateTime endDate) {
-        return null;
+        throw new UnsupportedOperationException();
         // TODO: 27.04.2024 from sql?
     }
-
 
     @Override
     public void sendMessage(String text) {
+        throw new UnsupportedOperationException();
         // TODO: 27.04.2024 run sql
     }
 }

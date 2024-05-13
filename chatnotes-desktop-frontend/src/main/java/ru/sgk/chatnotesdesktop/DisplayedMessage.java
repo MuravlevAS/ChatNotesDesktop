@@ -1,34 +1,47 @@
 package ru.sgk.chatnotesdesktop;
 
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import ru.sgk.chatnotesdesktop.backend.Message;
 
 import java.time.LocalDateTime;
 
 public class DisplayedMessage implements Message<DisplayedChat>, Displayable<Pane> {
+    private final DisplayedChat chat;
+    private final Message<?> origin;
+
+    public DisplayedMessage(DisplayedChat chat, Message<?> origin) {
+        this.chat = chat;
+        this.origin = origin;
+    }
+
     @Override
     public DisplayedChat chat() {
-        return null;
+        return chat;
     }
 
     @Override
     public String text() {
-        return null;
+        return origin.text();
     }
 
     @Override
     public Message withText(String text) {
-        return null;
+        return new DisplayedMessage(this.chat, origin.withText(text));
     }
 
     @Override
     public LocalDateTime modifiedDatetime() {
-        return null;
+        return origin.modifiedDatetime();
     }
 
     @Override
     public Pane displayableObject() {
-        // TODO: 12.05.2024 create displayable object. Object should have id like 'message_[chatId]_[messageId]'
-        return null;
+        Pane pane = new Pane();
+        pane.setPrefWidth(300);
+        pane.setPrefHeight(100);
+        Label label = new Label(text());
+        pane.getChildren().add(label);
+        return pane;
     }
 }

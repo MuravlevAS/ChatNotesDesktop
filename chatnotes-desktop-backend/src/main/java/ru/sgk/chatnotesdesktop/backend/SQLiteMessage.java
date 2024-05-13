@@ -10,11 +10,15 @@ public class SQLiteMessage implements StoredMessage<SQLiteChat> {
     private final AppDatasource datasource;
     private final SQLiteChat chat;
     private final UUID messageId;
+    private final String text;
+    private final LocalDateTime modifiedDatetime;
 
-    public SQLiteMessage(AppDatasource datasource, SQLiteChat chat, UUID messageId) {
+    public SQLiteMessage(AppDatasource datasource, SQLiteChat chat, UUID messageId, String text, LocalDateTime modifiedDatetime) {
         this.datasource = datasource;
         this.chat = chat;
         this.messageId = messageId;
+        this.text = text;
+        this.modifiedDatetime = modifiedDatetime;
     }
 
     @Override
@@ -29,18 +33,16 @@ public class SQLiteMessage implements StoredMessage<SQLiteChat> {
 
     @Override
     public String text() {
-        return null;
+        return text;
     }
 
     @Override
     public Message withText(String text) {
-        return null;
+        throw new UnsupportedOperationException(); // TODO: 13.05.2024
     }
 
     @Override
     public LocalDateTime modifiedDatetime() {
-        return null;
+        return modifiedDatetime;
     }
-
-
 }

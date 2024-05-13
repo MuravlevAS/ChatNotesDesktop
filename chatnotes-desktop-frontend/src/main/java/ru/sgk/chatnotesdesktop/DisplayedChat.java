@@ -2,7 +2,6 @@ package ru.sgk.chatnotesdesktop;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import ru.sgk.chatnotesdesktop.backend.Chat;
@@ -12,8 +11,8 @@ import ru.sgk.chatnotesdesktop.backend.datastore.StoredChat;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane>, HasId<UUID> {
     private final Chat<?> origin;
@@ -86,7 +85,8 @@ public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane>,
     @Override
     public Collection<DisplayedMessage> messages() {
         // TODO: 01.05.2024 get messages from origin. Map them to DisplayedMessages.
-        return Collections.emptyList();
+
+        return origin.messages().stream().map(m -> new DisplayedMessage(this, m)).collect(Collectors.toList());
     }
 
     @Override
