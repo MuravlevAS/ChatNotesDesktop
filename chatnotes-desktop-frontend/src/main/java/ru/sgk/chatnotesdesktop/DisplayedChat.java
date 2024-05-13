@@ -102,13 +102,7 @@ public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane>,
             Label label = (Label) chat.lookup("#text");
             label.setText(title());
             chat.setId("list_chat_" + this.id().toString());
-            chat.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-                if (e.getButton() == MouseButton.PRIMARY) {
-                    // TODO: 12.05.2024 add chat event handler that will create chat view with messages.
-//                    Pane messagePane = (Pane) chat.getScene().lookup("#messagesPane");
-//                    messagePane.
-                }
-            });
+            chat.addEventHandler(MouseEvent.MOUSE_CLICKED, new ListChatClickHandler(this, chat));
             return chat;
         } catch (IOException e) {
             throw new RuntimeException(e);
