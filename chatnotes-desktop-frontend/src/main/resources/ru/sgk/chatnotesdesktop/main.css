@@ -17,3 +17,32 @@
 .chat:pressed {
     -fx-background-color: #DDD;
 }
+
+.bordered {
+    -fx-border-color: red;
+    -fx-border-width: 1;
+}
+
+.message {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-padding: 10;
+}
+
+.messages-vbox {
+    -fx-spacing: 5;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+.scroll-pane:focused {
+    -fx-background-insets: 0;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+.scroll-pane:focused > .viewport {
+    -fx-background-color: transparent;
+}

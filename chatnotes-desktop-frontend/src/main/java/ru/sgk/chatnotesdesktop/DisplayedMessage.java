@@ -38,8 +38,8 @@ public class DisplayedMessage implements Message<DisplayedChat>, Displayable<Pan
     @Override
     public Pane displayableObject() {
         Pane pane = new Pane();
+        pane.getStyleClass().add("message");
         pane.setPrefWidth(300);
-        pane.setPrefHeight(100);
         Label label = new Label(text());
         pane.getChildren().add(label);
         return pane;
