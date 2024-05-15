@@ -51,10 +51,6 @@ public class ListChatClickHandler implements EventHandler<MouseEvent> {
             } catch (IOException e) {
                 throw new UncheckedIOException(e);
             }
-            // TODO: 12.05.2024 add chat event handler that will create chat view with messages.
-            //  Pane messagePane = (Pane) chat.getScene().lookup("#messagesPane");
-            //  messagePane.
-//            node.getScene().lookup("#")
         }
     }
 }
