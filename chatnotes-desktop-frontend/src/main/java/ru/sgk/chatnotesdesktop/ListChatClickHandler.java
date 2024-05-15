@@ -2,6 +2,7 @@ package ru.sgk.chatnotesdesktop;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
@@ -40,6 +41,7 @@ public class ListChatClickHandler implements EventHandler<MouseEvent> {
                                 .map(DisplayedMessage::displayableObject)
                                 .toArray(Pane[]::new)
                 );
+                vBox.setAlignment(Pos.BOTTOM_LEFT);
                 vBox.getStyleClass().add("messages-vbox");
                 ScrollPane scrollPane = new ScrollPane(vBox);
                 scrollPane.setVvalue(scrollPane.getVmax());
