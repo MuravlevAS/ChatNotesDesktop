@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public abstract class DatasourceAction<R> {
     private final AppDatasource datasource;
 
-    public DatasourceAction(AppDatasource datasource) {
+    protected DatasourceAction(AppDatasource datasource) {
         this.datasource = datasource;
     }
 

@@ -17,6 +17,7 @@ public final class NotClosableConnection implements Connection {
 
     @Override
     public void close() throws SQLException {
+        // should not be closed.
     }
 
     @Override
