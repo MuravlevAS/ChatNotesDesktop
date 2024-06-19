@@ -24,6 +24,7 @@ application {
 
 javafx {
     modules = rootProject.javafx.modules
+    version = 21
 }
 
 dependencies {
