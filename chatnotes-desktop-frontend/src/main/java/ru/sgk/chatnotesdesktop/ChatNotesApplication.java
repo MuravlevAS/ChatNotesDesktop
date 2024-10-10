@@ -7,6 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import ru.sgk.chatnotesdesktop.backend.CachedChat;
 import ru.sgk.chatnotesdesktop.backend.SQLiteChat;
 import ru.sgk.chatnotesdesktop.backend.datastore.AppDatasource;
 import ru.sgk.chatnotesdesktop.backend.datastore.sqlite.ChatNotesDBPath;
@@ -43,7 +44,7 @@ public class ChatNotesApplication extends Application {
 //
         Collection<SQLiteChat> sqLiteChats = new FetchChatsAction(datasource).doAction();
         for (SQLiteChat sqLiteChat : sqLiteChats) {
-            lookup.getChildren().add(new DisplayedChat(sqLiteChat).displayableObject());
+            lookup.getChildren().add(new DisplayedChat(new CachedChat<>(sqLiteChat)).displayableObject());
         }
         stage.show();
     }

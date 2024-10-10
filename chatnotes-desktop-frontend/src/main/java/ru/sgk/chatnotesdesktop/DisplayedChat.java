@@ -1,6 +1,5 @@
 package ru.sgk.chatnotesdesktop;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -8,8 +7,6 @@ import ru.sgk.chatnotesdesktop.backend.Chat;
 import ru.sgk.chatnotesdesktop.backend.HasId;
 import ru.sgk.chatnotesdesktop.backend.datastore.StoredChat;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.UUID;
@@ -44,7 +41,7 @@ public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane>,
      * @param origin
      */
     public DisplayedChat(Chat<?> origin) {
-        this(origin, origin instanceof StoredChat<?> i ? i.id() : UUID.randomUUID());
+        this(origin, origin instanceof HasId i ? (UUID) i.id() : UUID.randomUUID());
     }
 
     /**
@@ -96,16 +93,10 @@ public class DisplayedChat implements Chat<DisplayedMessage>, Displayable<Pane>,
 
     @Override
     public Pane displayableObject() {
-        FXMLLoader chatLoader = new FXMLLoader(getClass().getResource("/ru/sgk/chatnotesdesktop/list-chat.fxml"));
-        try {
-            Pane chat = chatLoader.load();
-            Label label = (Label) chat.lookup("#text");
-            label.setText(title());
-            chat.setId("list_chat_" + this.id().toString());
-            chat.addEventHandler(MouseEvent.MOUSE_CLICKED, new ListChatClickHandler(this, chat));
-            return chat;
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
+        Pane chat = new Pane(new Label(title()));
+        chat.setId("list_chat_" + this.id().toString());
+        chat.getStyleClass().add("chat");
+        chat.addEventHandler(MouseEvent.MOUSE_CLICKED, new ListChatClickHandler(this, chat));
+        return chat;
     }
 }

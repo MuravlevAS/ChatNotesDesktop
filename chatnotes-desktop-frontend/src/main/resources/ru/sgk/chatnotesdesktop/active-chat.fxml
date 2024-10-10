@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<BorderPane>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="active-chat" xmlns="http://javafx.com/javafx/17.0.2-ea">
     <top>
-        <Pane prefHeight="30" styleClass="white">
+        <Pane prefHeight="30" styleClass="top-bar">
 
         </Pane>
     </top>
@@ -12,8 +14,10 @@
 
     </center>
     <bottom>
-        <Pane prefHeight="45" styleClass="white">
-
+        <Pane prefHeight="45" styleClass="bottom-bar">
+            <HBox>
+                <TextField styleClass="text-input message-input"/>
+            </HBox>
         </Pane>
     </bottom>
 </BorderPane>

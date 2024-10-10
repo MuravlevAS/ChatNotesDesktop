@@ -2,20 +2,32 @@
 .blue {
     -fx-background-color: blue;
 }
+
 .light-blue {
     -fx-background-color: #00b2ff;
 }
+
 .white {
     -fx-background-color: #FFF;
 }
+
 .chat {
     -fx-background-color: #FFF;
+    -fx-pref-width: 200;
+    -fx-pref-height: 70;
 }
+
 .chat:hover {
     -fx-background-color: #EEE;
 }
+
 .chat:pressed {
     -fx-background-color: #DDD;
+}
+
+.top-bar {
+    -fx-pref-height: 30;
+    -fx-background-color: #FFF;
 }
 
 .bordered {
@@ -37,12 +49,15 @@
     -fx-background-color: transparent;
     -fx-padding: 0;
 }
+
 .scroll-pane:focused {
     -fx-background-insets: 0;
 }
+
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
 }
+
 .scroll-pane:focused > .viewport {
     -fx-background-color: transparent;
 }

@@ -39,7 +39,7 @@ public class SQLiteChat implements StoredChat<SQLiteMessage> {
     }
 
     @Override
-    public Chat<SQLiteMessage> withTitle(String title) {
+    public SQLiteChat withTitle(String title) {
         return new SQLiteChat(datasource, id, title, description);
     }
 
@@ -49,7 +49,7 @@ public class SQLiteChat implements StoredChat<SQLiteMessage> {
     }
 
     @Override
-    public Chat<SQLiteMessage> withDescription(String description) {
+    public SQLiteChat withDescription(String description) {
         return new SQLiteChat(datasource, id, title, description);
     }
 
