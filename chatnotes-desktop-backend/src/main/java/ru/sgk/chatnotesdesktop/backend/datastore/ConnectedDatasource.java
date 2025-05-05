@@ -22,4 +22,9 @@ public final class ConnectedDatasource implements AppDatasource {
     public Connection connection() {
         return connection;
     }
+
+    @Override
+    public String toString() {
+        return ConnectedDatasource.class.getName() + ' ' + connection;
+    }
 }

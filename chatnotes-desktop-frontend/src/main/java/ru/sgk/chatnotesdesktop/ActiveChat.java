@@ -1,5 +1,6 @@
 package ru.sgk.chatnotesdesktop;
 
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;

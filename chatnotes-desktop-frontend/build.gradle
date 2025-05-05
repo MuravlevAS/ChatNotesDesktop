@@ -28,6 +28,8 @@ javafx {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.openjfx/javafx-fxml
+    implementation 'org.openjfx:javafx-fxml:21'
     implementation 'org.cactoos:cactoos:0.55.0'
     implementation project(':chatnotes-desktop-backend')
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")

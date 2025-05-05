@@ -38,4 +38,9 @@ public final class SQLiteDatasource implements AppDatasource {
             throw new UncheckedIOException(e);
         }
     }
+
+    @Override
+    public String toString() {
+        return SQLiteDatasource.class.getName() + ' ' + dbLocation.toString();
+    }
 }

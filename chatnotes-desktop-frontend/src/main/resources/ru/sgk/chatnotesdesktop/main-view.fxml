@@ -3,11 +3,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" stylesheets="@main.css">
-    <left>
+    <right>
         <VBox prefWidth="200" minWidth="200" styleClass="blue" fx:id="chats_pane">
 
         </VBox>
-    </left>
+    </right>
     <center>
         <BorderPane prefWidth="300" minWidth="200" styleClass="light-blue" fx:id="active_chat">
         </BorderPane>
